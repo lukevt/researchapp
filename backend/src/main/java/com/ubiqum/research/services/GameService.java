@@ -15,11 +15,11 @@ import com.ubiqum.research.repositories.GameRepository;
 public class GameService {
 	
 	@Autowired
-	public GameRepository gameRepository;
+	public GameRepository repository;
 	
 	@Transactional(readOnly = true)
 	public List <GameDTO> getAllGames(){
-		List<Game> list = gameRepository.findAll();
+		List<Game> list = repository.findAll();
 		return list.stream().map(x -> new GameDTO(x)).collect(Collectors.toList());
 	}
 }
