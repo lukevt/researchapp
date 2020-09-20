@@ -12,7 +12,6 @@ const Pagination = ({totalPages = 0, goToPage, activePage}: Props) =>{
     return(
         <div className="pagination-container">
             {paginationItems.map(item =>{
-                console.log(activePage)
                 return (
                 
                 <button 
