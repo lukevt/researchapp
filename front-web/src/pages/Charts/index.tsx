@@ -21,7 +21,7 @@ const initialPieData = {
     labels:[],
     series:[]
 }
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://sds1-lfcsvt.herokuapp.com";
 
 const Charts = ( ) =>{
 
@@ -33,9 +33,10 @@ const Charts = ( ) =>{
         async function getData(){
             const recordsResponse = await Axios.get(`${BASE_URL}/records`);
             const gamesResponse = await Axios.get(`${BASE_URL}/games`);
+            console.log(gamesResponse.data)
             const barData = buildBarSeries(gamesResponse.data, recordsResponse.data.content)
             setBarData(barData)
-
+            
             const platformChartData = getPlatformChartData(recordsResponse.data.content)
             setPlatformData (platformChartData)
 
